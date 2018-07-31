@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018-07-31T21:31:42Z
+  labels:
+    run: redis-server
+  name: redis-server
+  namespace: default
+  resourceVersion: "183608"
+  selfLink: /api/v1/namespaces/default/services/redis-server
+  uid: 1e3eae2f-9509-11e8-9e62-12acb4ffda5a
+spec:
+  clusterIP: 10.106.144.68
+  ports:
+  - port: 6379
+    protocol: TCP
+    targetPort: 6379
+  selector:
+    run: redis-server
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
