@@ -16,7 +16,7 @@ use_connection(conn)
 #queued_job_ids = q.job_ids
 #print queued_job_ids
 # Delay execution of count_words_at_url('http://nvie.com')
-job = q.enqueue(count_words_at_url, 5)
+job = q.enqueue(count_words_at_url, 10)
 
 #queued_job_ids = q.job_ids
 #print queued_job_ids

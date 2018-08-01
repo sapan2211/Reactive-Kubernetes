@@ -1,9 +1,12 @@
 from rq import Queue,Worker,use_connection
+import socket
 import redis
 listen = ['high', 'default', 'low']
 
+ip = socket.gethostbyname('redis-server')
+
 conn = redis.StrictRedis(
-        host='192.168.118.137',
+        host=ip,
         port=6379)
 # Tell RQ what Redis connection to use
 redis_conn = conn
