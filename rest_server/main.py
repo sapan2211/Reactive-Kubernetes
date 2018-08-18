@@ -1,12 +1,12 @@
 from rq import Queue,Worker,use_connection
 import redis
-from word_count import count_words_at_url
+#from word_count import count_words_at_url
 import time
 
 listen = ['high', 'default', 'low']
 
 conn = redis.StrictRedis(
-        host='192.168.118.137',
+        host='192.168.118.166',
         port=6379)
 # Tell RQ what Redis connection to use
 redis_conn = conn
@@ -16,10 +16,11 @@ use_connection(conn)
 #queued_job_ids = q.job_ids
 #print queued_job_ids
 # Delay execution of count_words_at_url('http://nvie.com')
-job = q.enqueue(count_words_at_url, 10)
+job = q.enqueue('create_job.create_job_worker',5)
+#job = q.enqueue('word_count.count_words_at_url',5)
 
-#queued_job_ids = q.job_ids
-#print queued_job_ids
+queued_job_ids = q.job_ids
+print queued_job_ids
 
 print job.result   # => None
 #worker = Worker(map(Queue,listen))

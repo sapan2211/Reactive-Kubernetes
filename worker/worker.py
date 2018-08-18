@@ -1,5 +1,5 @@
 from rq import Queue,Worker,use_connection
-import socket
+#import socket
 import redis
 listen = ['high', 'default', 'low']
 

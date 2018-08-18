@@ -33,7 +33,7 @@ spec:
         imagePullPolicy: Always
         name: redis-server
         ports:
-        - containerPort: 6380
+        - containerPort: 6379
           protocol: TCP
         resources: {}
         terminationMessagePath: /dev/termination-log
